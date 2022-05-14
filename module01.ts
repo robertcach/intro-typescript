@@ -20,6 +20,7 @@ bothTypes = "five"
 
 
 
+
 /* TYPE INFERENCE: ENUM */
 enum ContractStatus {
   Permanent, // 0: initial value
@@ -71,6 +72,7 @@ typeof randomValueMy === 'string' ? console.log(randomValueMy.toLowerCase()) : c
 
 
 
+
 /* UNION TYPES */
 // A variable to which more than one data type can be defined
 let multiType: number | boolean;
@@ -109,7 +111,6 @@ let newManager: ManagementEmployee = {
   stockPlan: true
 };
 
-
 let newEmployee: ManagementEmployee = {
   employeeId: 456,
   age: 18,
@@ -136,3 +137,20 @@ let diceRoll: dice;
 diceRoll = 1;    //* Valid
 diceRoll = 2;    //* Valid
 // diceRoll = 7;    //* Invalid
+
+
+
+
+/* ARRAYS */
+let list: number[] = [1, 2, 3]
+let otherList: Array<number> = [4, 5, 6]
+
+
+
+
+/* TUPLES */
+// Array with different value types
+
+let person1: [string, number] = ['Robert', 30]  //* Valid
+let person2: [string, number, string] = ['Nico', 7, 'Madrid']  //* Valid
+// person2 = ['Nico', 7, 'Madrid', true]   //* Invalid
