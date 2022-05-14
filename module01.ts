@@ -68,3 +68,50 @@ randomValueMy = true;
 randomValueMy = 'Robert';
 
 typeof randomValueMy === 'string' ? console.log(randomValueMy.toLowerCase()) : console.log('Error');
+
+
+
+/* UNION TYPES */
+// A variable to which more than one data type can be defined
+let multiType: number | boolean;
+multiType = 8;
+multiType = true;
+
+function add(x: number | string, y: number |string) {
+  if (typeof x === 'number' && typeof y === 'number') return x + y;
+  if (typeof x === 'string' && typeof y === 'string') return x.concat(y);
+  throw new Error('The data is not number or string');
+}
+
+console.log(add(4,8));
+console.log(add('Hola ', 'Robert'));
+
+
+
+
+/* INTERSECTION TYPES */
+// Combine two o more types to create one which has all the type's properties
+
+interface Employee {
+  employeeId: number,
+  age: number
+}
+
+interface Manager {
+  stockPlan: boolean
+}
+
+type ManagementEmployee = Employee & Manager // Use '&' to combine types
+
+let newManager: ManagementEmployee = {
+  employeeId: 123,
+  age: 24,
+  stockPlan: true
+};
+
+
+let newEmployee: ManagementEmployee = {
+  employeeId: 456,
+  age: 18,
+  stockPlan: false
+};

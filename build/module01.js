@@ -46,9 +46,17 @@ let randomValueMy = 10;
 randomValueMy = true;
 randomValueMy = 'Robert';
 typeof randomValueMy === 'string' ? console.log(randomValueMy.toLowerCase()) : console.log('Error');
-/* if (typeof randomValueMy === "string") {
-    console.log((randomValueMy as string).toUpperCase());    //* Returns MATEO to the console.
-} else {
-    console.log("Error - A string was expected here.");    //* Returns an error message.
+/* UNION TYPES */
+let multiType;
+multiType = 8;
+multiType = true;
+function add(x, y) {
+    if (typeof x === 'number' && typeof y === 'number')
+        return x + y;
+    if (typeof x === 'string' && typeof y === 'string')
+        return x.concat(y);
+    throw new Error('The data is not number or string');
 }
- */ 
+console.log(add(4, 8));
+console.log(add('Hola ', 'Robert'));
+;
