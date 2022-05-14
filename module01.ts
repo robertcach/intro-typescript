@@ -115,3 +115,24 @@ let newEmployee: ManagementEmployee = {
   age: 18,
   stockPlan: false
 };
+
+
+
+
+
+/* LITERAL TYPE AND RESTRICTION */
+// Define a exact value to string, number or boolean type
+
+type testResult = 'pass' | 'fail' | 'incomplete'
+let myTest: testResult
+
+myTest = 'pass';  //* Valid
+myTest = 'fail';  //* Valid
+myTest = 'incomplete';  //* Valid
+// myTest = 'failure';  //* Invalid
+
+type dice = 1 | 2 | 3 | 4 | 5 | 6;
+let diceRoll: dice;
+diceRoll = 1;    //* Valid
+diceRoll = 2;    //* Valid
+// diceRoll = 7;    //* Invalid
