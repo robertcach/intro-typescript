@@ -48,9 +48,9 @@ myTodo(myNewTodo) // CONSOLA: 'Eat diner right now'
 
 // EXERCISE
 interface IceCream {
-  flavor: string,
-  scoops: number,
-  instruction?: string // Optional because the property has ?
+  flavor: string;
+  scoops: number;
+  instructions?: string // Optional because the property has ?
 }
 
 let iceCream: IceCream = {
@@ -65,4 +65,33 @@ function tooManyScoops(dessert: IceCream) {
   return 'Your order will be ready soon!'
 }
 
-console.log(tooManyScoops({flavor: 'coco', scoops: 5, instruction: 'nope'}));
+console.log(tooManyScoops({flavor: 'coco', scoops: 5, instructions: 'nope'}));
+
+
+
+
+//INTERFACE EXTENSION
+// We can copy all the properties of one interface to another
+// Have to implements all properties of all interfaces
+
+interface Sundae extends IceCream {
+  sauce: 'chocolate' | 'caramel' | 'strawberry';
+  nuts?: boolean;
+  whippedCream?: boolean;
+  instructions?: string;
+}
+
+let sundae: Sundae = {
+  flavor: 'vanilla',
+  scoops: 2,
+  sauce: 'caramel',
+  nuts: true
+}
+
+function tooManyScoopsTwo(dessert: Sundae) {
+  if (dessert.scoops >= 4) return dessert.scoops + ' is too many scoops'
+  return 'Your order will be ready soon!'
+}
+
+console.log(tooManyScoopsTwo({flavor: 'coco', scoops: 8, instructions: 'nope', sauce: 'caramel'}));
+

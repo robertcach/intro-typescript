@@ -25,10 +25,22 @@ let iceCream = {
     flavor: 'vanilla',
     scoops: 2
 };
-console.log(iceCream.scoops);
+console.log(iceCream.flavor);
 function tooManyScoops(dessert) {
     if (dessert.scoops >= 4)
         return dessert.scoops + ' is too many scoops';
     return 'Your order will be ready soon!';
 }
-console.log(tooManyScoops({ flavor: 'coco', scoops: 5, instruction: 'nope' }));
+console.log(tooManyScoops({ flavor: 'coco', scoops: 5, instructions: 'nope' }));
+let sundae = {
+    flavor: 'vanilla',
+    scoops: 2,
+    sauce: 'caramel',
+    nuts: true
+};
+function tooManyScoopsTwo(dessert) {
+    if (dessert.scoops >= 4)
+        return dessert.scoops + ' is too many scoops';
+    return 'Your order will be ready soon!';
+}
+console.log(tooManyScoopsTwo({ flavor: 'coco', scoops: 8, instructions: 'nope', sauce: 'caramel' }));
