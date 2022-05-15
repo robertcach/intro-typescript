@@ -108,11 +108,17 @@ let addThreeNumbers = (x, y, z) => {
         return x + y;
     return x + y + z;
 };
-console.log(addThreeNumbers(10, 20));
-console.log(addThreeNumbers(10, 20, 30, 40));
+console.log(addThreeNumbers(10, 20)); // 30
+console.log(addThreeNumbers(10, 20, 30, 40)); // 60. Returns 60 because the fourth arguments is ignored
 let addThreeMyNumbers = (x, y, z) => z === undefined ? x + y : x + y + z;
-console.log(addThreeMyNumbers(4, 5));
-console.log(addThreeMyNumbers(4, 5, 6));
+console.log(addThreeMyNumbers(4, 5)); // 9
+console.log(addThreeMyNumbers(4, 5, 6)); // 11
 let subtractThreeNumbers = (x, y, z = 100) => x - y - z;
-console.log(subtractThreeNumbers(10, 20));
-console.log(subtractThreeNumbers(10, 20, 15));
+console.log(subtractThreeNumbers(10, 20)); // -110
+console.log(subtractThreeNumbers(10, 20, 15)); // -25
+let addNumbersCalculator = (x, y) => x + y;
+let subtractNumbersCalculator = (x, y) => x - y;
+console.log(addNumbersCalculator(4, 5)); // 9
+console.log(subtractNumbersCalculator(3, 2)); // 1
+let doCalculation = (operation) => operation === 'add' ? addNumbersCalculator : subtractNumbersCalculator;
+console.log(doCalculation('add')(1, 2));

@@ -181,17 +181,37 @@ let addThreeNumbers = (x: number, y: number, z?: number): number => {
   return x + y + z
 };
 
-console.log(addThreeNumbers(10, 20));
-console.log(addThreeNumbers(10, 20, 30, 40)); // Returns 60 because the fourth arguments is ignored
+console.log(addThreeNumbers(10, 20)); // 30
+console.log(addThreeNumbers(10, 20, 30, 40)); // 60. Returns 60 because the fourth arguments is ignored
 
 
 
 let addThreeMyNumbers = (x: number, y: number, z?: number): number => z === undefined ? x + y : x + y + z
-console.log(addThreeMyNumbers(4, 5));
-console.log(addThreeMyNumbers(4, 5, 6));
+console.log(addThreeMyNumbers(4, 5)); // 9
+console.log(addThreeMyNumbers(4, 5, 6)); // 11
 
 
 
 let subtractThreeNumbers = (x: number, y: number, z: number = 100): number => x - y - z;
-console.log(subtractThreeNumbers(10, 20));
-console.log(subtractThreeNumbers(10, 20, 15));
+console.log(subtractThreeNumbers(10, 20)); // -110
+console.log(subtractThreeNumbers(10, 20, 15)); // -25
+
+
+
+
+// EXERCISE TWO
+/* type calculator = (x: number, y: number) => number */
+
+interface Calculator {
+  (x: number, y: number): number;
+}
+
+let addNumbersCalculator: Calculator = (x: number, y: number): number => x + y
+let subtractNumbersCalculator: Calculator = (x: number, y: number): number => x - y
+
+console.log(addNumbersCalculator(4, 5)); // 9
+console.log(subtractNumbersCalculator(3, 2)); // 1
+
+
+let doCalculation = (operation: 'add' | 'subtract'): Calculator => operation === 'add' ? addNumbersCalculator : subtractNumbersCalculator
+console.log(doCalculation('add')(1, 2));
