@@ -70,7 +70,7 @@ console.log(tooManyScoops({flavor: 'coco', scoops: 5, instructions: 'nope'}));
 
 
 
-//INTERFACE EXTENSION
+/* INTERFACE EXTENSION */
 // We can copy all the properties of one interface to another
 // Have to implements all properties of all interfaces
 
@@ -95,3 +95,53 @@ function tooManyScoopsTwo(dessert: Sundae) {
 
 console.log(tooManyScoopsTwo({flavor: 'coco', scoops: 8, instructions: 'nope', sauce: 'caramel'}));
 
+
+
+
+/* INDEXABLE TYPES */
+// Objects whose properties can be accessed by an index
+// Is the same way to access array's elements
+
+interface IceCreamArray {
+  [index: number]: string;
+}
+
+let myIceCream: IceCreamArray;
+myIceCream = ['chocolate', 'vanilla', 'strawberry'];
+
+let myStr: string = myIceCream[2];
+console.log(myStr); // 'strawberry'
+
+
+
+
+/* API AND INTERFACE */
+const fetchURL = 'https://jsonplaceholder.typicode.com/posts';
+
+interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
+async function fetchPosts(url: string) {
+  let response = await fetch(url);
+  let body = await response.json();
+  console.log(body); // Body contains all post from API response
+  return body as Post[] // Array of objects with all post with Post type
+}
+
+async function ShowPost() {
+  let posts = await fetchPosts(fetchURL); // Contains all post after 'fetchPosts()' functions finish
+
+  let post = posts[0] // Get the first post
+  console.log(post);
+  
+  console.log('Post #' + post.id)
+  console.log('Author: ' + (post.userId === 1 ? 'Administrator' : post.userId.toString()));
+  console.log('Title: ' + post.title);
+  console.log('Body: ' + post.body);
+}
+
+ShowPost()
