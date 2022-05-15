@@ -63,13 +63,13 @@ function fetchPosts(url) {
     return __awaiter(this, void 0, void 0, function* () {
         let response = yield fetch(url);
         let body = yield response.json();
-        console.log(body); // body contains all post from API
-        return body;
+        console.log(body); // Body contains all post from API response
+        return body; // Array of objects with all post with Post type
     });
 }
 function ShowPost() {
     return __awaiter(this, void 0, void 0, function* () {
-        let posts = yield fetchPosts(fetchURL);
+        let posts = yield fetchPosts(fetchURL); // Contains all post after 'fetchPosts()' functions finish
         let post = posts[0]; // Get the first post
         console.log(post);
         console.log('Post #' + post.id);
