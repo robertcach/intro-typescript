@@ -47,6 +47,7 @@ randomValueMy = true;
 randomValueMy = 'Robert';
 typeof randomValueMy === 'string' ? console.log(randomValueMy.toLowerCase()) : console.log('Error');
 /* UNION TYPES */
+// A variable to which more than one data type can be defined
 let multiType;
 multiType = 8;
 multiType = true;
@@ -59,4 +60,29 @@ function add(x, y) {
 }
 console.log(add(4, 8));
 console.log(add('Hola ', 'Robert'));
-;
+let newManager = {
+    employeeId: 123,
+    age: 24,
+    stockPlan: true
+};
+let newEmployee = {
+    employeeId: 456,
+    age: 18,
+    stockPlan: false
+};
+let myTest;
+myTest = 'pass'; //* Valid
+myTest = 'fail'; //* Valid
+myTest = 'incomplete'; //* Valid
+let diceRoll;
+diceRoll = 1; //* Valid
+diceRoll = 2; //* Valid
+// diceRoll = 7;    //* Invalid
+/* ARRAYS */
+let list = [1, 2, 3];
+let otherList = [4, 5, 6];
+/* TUPLES */
+// Array with different value types
+let person1 = ['Robert', 30]; //* Valid
+let person2 = ['Nico', 7, 'Madrid']; //* Valid
+// person2 = ['Nico', 7, 'Madrid', true]   //* Invalid
