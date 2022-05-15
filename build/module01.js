@@ -1,8 +1,8 @@
 "use strict";
-function addNumbers(x, y) {
+function addNumbers01(x, y) {
     return x + y;
 }
-console.log(addNumbers(3, 6));
+console.log(addNumbers01(3, 6));
 /* TYPE INFERENCE: NUMBER AND STRING */
 let x; // Explicitly declares x as a "number" type
 let x2 = 1; // Explicitly declares x as a "number" type and "1" value

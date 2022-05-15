@@ -1,8 +1,8 @@
-function addNumbers(x: number, y: number) {
+function addNumbers01(x: number, y: number) {
   return x + y;
 }
 
-console.log(addNumbers(3, 6));
+console.log(addNumbers01(3, 6));
 
 
 /* TYPE INFERENCE: NUMBER AND STRING */
