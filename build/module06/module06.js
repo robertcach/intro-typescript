@@ -21,8 +21,30 @@ function identity(value, message) {
 let returnNumber = identity(100, 'Hello!');
 let returnString = identity('100', 'Hola!');
 let returnBoolean = identity(true, 'Bonjour!');
-console.log(returnNumber);
-document.write(returnNumber);
-/* returnNumber = returnNumber * 100;  */ // OK
+returnNumber = returnNumber * 100; // OK
 //returnString = returnString * 100;   // Error: Type 'number' not assignable to type 'string'
 //returnBoolean = returnBoolean * 100; // Error: Type 'number' not assignable to type 'boolean'
+/* METHODS AND PROPERTIES OF GENERIC TYPE */
+function identityTwo(value, message) {
+    let result = value + value; // Error.
+    // The left part of an arithmetic operation must be of type "any", "number", "bigint", or an enumeration type because it doesn't know what value to pass to it at run time.
+    console.log(message);
+    return value;
+}
+function identityThree(value, message) {
+    let result = '';
+    let typeValue = typeof value;
+    if (typeof value === 'number')
+        result = value + value;
+    else if (typeof value === 'string')
+        result = value + value;
+    console.log(`The message is ${message} and the function returns a ${typeValue} value of ${result}`);
+    return result;
+}
+/* let returnNumberThree = identityThree(100, 'Hello!');
+let returnStringThree = identityThree('100', 'Hola!'); */
+// let returnBooleanThree = identityThree(true, 'Bonjour!'); // Error because true is not a type in ValidTypes
+let numberValue = identityThree(100, 'Hello');
+let stringValue = identityThree('100', 'Hello');
+console.log(numberValue); // 200
+console.log(stringValue); // 100100
