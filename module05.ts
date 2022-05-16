@@ -1,9 +1,10 @@
 /* CLASSES */
 class Car {
   // Properties
-  _make: string;
-  _color: string;
-  _doors: number;
+  private static numberOfCars: number = 0; // Static property
+  private _make: string;
+  private _color: string;
+  private _doors: number;
 
   // Constructor
   constructor(make: string, color: string, doors: number = 4) {
@@ -16,6 +17,8 @@ class Car {
     } else {
       throw new Error('Doors must be an even number');
     }
+
+    Car.numberOfCars++; // Increments the value of the static property. Use className to access them instead "this." because is a static property
   }
 
   // Accessors
@@ -61,9 +64,14 @@ class Car {
     return `${this.worker()} is turning to ${direction}`
   }
 
-  worker(): string {
+  private worker(): string {
     return this._make
   }
+
+  // static method
+  public static getNumberOfCars(): number {
+    return Car.numberOfCars;
+  } 
 }
 
 
@@ -72,8 +80,8 @@ class Car {
 
 /* EXERCISE */
 let myCar1 = new Car('Cool Car Company', 'blue', 2);
-console.log(myCar1._color); // Access value WITHOUT get and set accessors => 'blue'
-console.log(myCar1.color); // Access value THROUGH get and set accessors.  => 'The color of the car is blue'
+// console.log(myCar1._color); // Access value WITHOUT get and set accessors and defined in CLASS. => 'blue'
+console.log(myCar1.color); // Access value THROUGH get and set accessors and defined in CONSTRUCTOR.  => 'The color of the car is blue'
 
 
 let myCar2 = new Car('Galaxy Motors', 'red', 8)
@@ -86,3 +94,9 @@ console.log(myCar3.doors); // Shows 4. The default value
 console.log(myCar1.accelerate(35));
 console.log(myCar2.brake());
 console.log(myCar3.turn('right'));
+
+
+
+/* EXERCISE */
+
+console.log(Car.getNumberOfCars()); // Shows 3 because we created 3 instances of Car class. All of that instances shares properties and methods statics
