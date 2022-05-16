@@ -135,3 +135,18 @@ console.log(spark.charge()); // Spark Motor is charging
 
 let eCar = new ElectricCar('Electric Car Co.', 'black', 263)
 console.log(eCar.doors);
+
+
+
+
+
+
+/* INTERFACES AND CLASSES */
+interface Vehicle {
+  make: string;
+  color: string;
+  doors: number;
+  accelerate(speed: number): string;
+  brake(): string;
+  turn(direction: 'left' | 'right'): string;
+}
