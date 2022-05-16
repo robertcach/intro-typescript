@@ -9,7 +9,13 @@ class Car {
   constructor(make: string, color: string, doors: number = 4) {
     this._make = make;
     this._color = color;
-    this._doors = doors;
+
+    // Validations have to be in constructor
+    if ((doors % 2) === 0) {
+      this._doors = doors;
+    } else {
+      throw new Error('Doors must be an even number');
+    }
   }
 
   // Accessors
@@ -38,10 +44,7 @@ class Car {
   }
 
   set doors(doors: number) {
-    if (doors % 2 === 0) {
-      this._doors = doors
-    }
-    throw new Error('Doors must be an even number')
+    this._doors = doors
   }
 
 
@@ -62,3 +65,24 @@ class Car {
     return this._make
   }
 }
+
+
+
+
+
+/* EXERCISE */
+let myCar1 = new Car('Cool Car Company', 'blue', 2);
+console.log(myCar1._color); // Access value WITHOUT get and set accessors => 'blue'
+console.log(myCar1.color); // Access value THROUGH get and set accessors.  => 'The color of the car is blue'
+
+
+let myCar2 = new Car('Galaxy Motors', 'red', 8)
+console.log(myCar2.doors);
+console.log(myCar2.doors = 5); // Error appears
+
+let myCar3 = new Car('Galaxy Motors', 'Gray')
+console.log(myCar3.doors); // Shows 4. The default value
+
+console.log(myCar1.accelerate(35));
+console.log(myCar2.brake());
+console.log(myCar3.turn('right'));
